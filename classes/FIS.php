@@ -18,7 +18,7 @@ class FIS extends FIS_BaseElement {
 	 */
 	public static function GetDictVal($dictNumber, $key = 'ID', $val = 'Name') {
 		$fName = 'import_export/xml/fis/'.(($dictNumber <= 9) ? "0" : "").$dictNumber.'_dict.xml';
-		if (file_exists($fName) === FALSE)
+		if (!file_exists($fName))
 			return array();
 		$res = array();
 		foreach (simplexml_load_file($fName)->DictionaryItems->DictionaryItem as $rec)

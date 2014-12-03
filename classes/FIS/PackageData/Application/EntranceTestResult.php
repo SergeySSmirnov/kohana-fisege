@@ -68,7 +68,7 @@ class FIS_PackageData_Application_EntranceTestResult extends FIS_BaseElement {
 		$node->appendChild(new DOMElement('ResultValue', $this->ResultValue));
 		$node->appendChild(new DOMElement('ResultSourceTypeID', $this->ResultSourceTypeID));
 		$entranceTestSubject = $node->appendChild(new DOMElement('EntranceTestSubject'));
-		$entranceTestSubject->appendChild(new DOMElement(((is_string($this->SubjectName)) ? 'SubjectName' : 'SubjectID'), $this->SubjectName));
+		$entranceTestSubject->appendChild(new DOMElement((is_string($this->SubjectName) ? 'SubjectName' : 'SubjectID'), $this->SubjectName));
 		$node->appendChild(new DOMElement('EntranceTestTypeID', $this->EntranceTestTypeID));
 		$node->appendChild(new DOMElement('CompetitiveGroupID', $this->CompetitiveGroupID));
 		return $node;

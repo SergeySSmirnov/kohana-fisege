@@ -84,9 +84,9 @@ class FIS_PackageData_OrderOfAdmission extends FIS_BaseElement {
 		$node->appendChild(new DOMElement('EducationLevelID', $this->EducationLevelID));
 		if (!empty($this->Stage))
 			$node->appendChild(new DOMElement('Stage', $this->Stage));
-		if ($this->IsBeneficiary)
+		if ($this->IsBeneficiary === TRUE)
 			$node->appendChild(new DOMElement('IsBeneficiary', 'true'));
-		if ($this->IsForeigner)
+		if ($this->IsForeigner === TRUE)
 			$node->appendChild(new DOMElement('IsForeigner', 'true'));
 		if (!empty($this->CompetitiveGroupUID))
 			$node->appendChild(new DOMElement('CompetitiveGroupUID', $this->CompetitiveGroupUID));

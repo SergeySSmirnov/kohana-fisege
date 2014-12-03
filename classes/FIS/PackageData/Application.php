@@ -103,7 +103,7 @@ class FIS_PackageData_Application extends FIS_BaseElement {
 		$node->appendChild(new DOMElement('RegistrationDate', $this->RegistrationDate));
 		if (!is_null($this->LasDenyDate))
 			$node->appendChild(new DOMElement('LasDenyDate', $this->LasDenyDate));
-		$node->appendChild(new DOMElement('NeedHostel', ($this->NeedHostel ? 'true' : 'false')));
+		$node->appendChild(new DOMElement('NeedHostel', (($this->NeedHostel === TRUE) ? 'true' : 'false')));
 		$node->appendChild(new DOMElement('StatusID', $this->StatusID));
 		if (!empty($this->StatusComment))
 			$node->appendChild(new DOMElement('StatusComment', $this->StatusComment));

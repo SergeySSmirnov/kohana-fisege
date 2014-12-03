@@ -61,7 +61,7 @@ abstract class FIS_PackageData_Application_BaseDocument extends FIS_BaseElement 
 	public function GetNode($node) {
 		if (!empty($this->UID))
 			$node->appendChild(new DOMElement('UID', $this->UID));
-		$node->appendChild(new DOMElement('OriginalReceived', ($this->OriginalReceived ? 'true' : 'false')));
+		$node->appendChild(new DOMElement('OriginalReceived', (($this->OriginalReceived === TRUE) ? 'true' : 'false')));
 		if (!empty($this->OriginalReceivedDate))
 			$node->appendChild(new DOMElement('OriginalReceivedDate', $this->OriginalReceivedDate));
 		$node->appendChild(new DOMElement('DocumentSeries', $this->DocumentSeries));
