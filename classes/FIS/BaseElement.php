@@ -5,7 +5,7 @@
  *
  * @category Class
  * @author Сергей С. Смирнов
- * @copyright 2010-14 RUSproj, Sergey S. Smirnov
+ * @copyright 2013-14 Ivanovo State University od Chemistry and Technology
  */
 abstract class FIS_BaseElement {
 
