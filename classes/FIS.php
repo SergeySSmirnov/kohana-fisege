@@ -2,10 +2,9 @@
 
 /**
  * Класс является базовым элементом для описания и формирования структуры XML документа, который необходимо выгрузить в "ФИС ЕГЭ и прием". 
- *
- * @category Class
+ * @package FIS EGE
  * @author Сергей С. Смирнов
- * @copyright 2013-14 Ivanovo State University od Chemistry and Technology
+ * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
  */
 class FIS extends FIS_BaseElement {
 	

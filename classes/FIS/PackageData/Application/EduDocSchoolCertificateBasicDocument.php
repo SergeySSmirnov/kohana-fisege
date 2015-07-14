@@ -2,10 +2,9 @@
 
 /**
  * Класс, представляющий блок данных об аттестате об основном общем образовании.
- *
- * @category Class
+ * @package FIS EGE
  * @author Сергей С. Смирнов
- * @copyright 2013-14 Ivanovo State University od Chemistry and Technology
+ * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
  */
 class FIS_PackageData_Application_EduDocSchoolCertificateBasicDocument extends FIS_PackageData_Application_BaseDocument {
 

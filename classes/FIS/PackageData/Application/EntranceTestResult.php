@@ -2,10 +2,9 @@
 
 /**
  * Класс, представляющий блок данных результате вступительного испытания.
- *
- * @category Class
+ * @package FIS EGE
  * @author Сергей С. Смирнов
- * @copyright 2013-14 Ivanovo State University od Chemistry and Technology
+ * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
  */
 class FIS_PackageData_Application_EntranceTestResult extends FIS_BaseElement {
 
