@@ -9,11 +9,11 @@
 class FIS_PackageData_Application extends FIS_BaseElement {
 
 	/**
-	 * @var string Идентификатор в ИС ОУ (обязательное поле).
+	 * @var string Идентификатор в ИС ОО (обязательное поле).
 	 */
 	public $UID;
 	/**
-	 * @var string Номер заявления ОУ (обязательное поле).
+	 * @var string Номер заявления ОО (обязательное поле).
 	 */
 	public $ApplicationNumber;
 	/**
@@ -41,6 +41,10 @@ class FIS_PackageData_Application extends FIS_BaseElement {
 	 */
 	public $StatusComment;
 	/**
+	 * @var string Приоритет заявления. Заполняется в случае нескольких заявлений от одного абитуриента (не обязательное поле).
+	 */
+	public $Priority;
+	/**
 	 * @var array Массив идентификаторов конкурсных групп до зачисления (обязательное поле).
 	 */
 	public $SelectedCompetitiveGroups = array();
@@ -49,7 +53,7 @@ class FIS_PackageData_Application extends FIS_BaseElement {
 	 */
 	public $SelectedCompetitiveGroupItems = array();
 	/**
-	 * @var FIS_PackageData_Application_FinSourceEduForm[] Массив данных об условиях приема, выбранных абитуриентом (обязательное поле).
+	 * @var FIS_PackageData_Application_FinSourceEduForm[] Формы обучения и источники финансирования, выбранные абитуриентом (обязательное поле).
 	 */
 	public $FinSourceAndEduForms = array();
 // FUTURE: Реализовать генерацию ApplicationCommonBenefit
@@ -70,10 +74,7 @@ class FIS_PackageData_Application extends FIS_BaseElement {
 	 * @var FIS_PackageData_Application_ApplicationDocuments Документы, приложенные к заявлению (обязательное поле, инициализируется автоматически).
 	 */
 	public $ApplicationDocuments;
-	/**
-	 * @var string Приоритет заявления (не обязательное поле).
-	 */
-	public $Priority;
+
 // FUTURE: Реализовать генерацию IndividualAchievements
 // 	/**
 // 	 * @var Unknown[] Массив данных об индивидуальных достижениях поступающего (не обязательное поле).

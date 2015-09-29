@@ -18,6 +18,11 @@ class FIS_PackageData extends FIS_BaseElement {
 // 	 * @var unknown Сведения об объеме и структуре приема (не обязательное поле, необходима предварительная инициализация).
 // 	 */
 // 	public $AdmissionInfo;
+// FUTURE: Реализовать генерацию InstitutionAchievements	
+// 	/**
+// 	 * @var unknown Индивидуальные достижения, учитываемые образовательной организацией.
+// 	 */
+// 	public $InstitutionAchievements;
 	/**
 	 * @var FIS_PackageData_Application[] Массив данных заявлений абитуриентов (не обязательное поле, необходима предварительная инициализация каждого элемента массива).
 	 */

@@ -21,6 +21,10 @@ class FIS_PackageData_Application_FinSourceEduForm extends FIS_BaseElement {
 	 */
 	public $TargetOrganisationUID;
 	/**
+	 * @var string Приоритет для данной комбинации источника финансирования, формы обучения, конкурсной группы и направления (не обязательное поле).
+	 */
+	public $Priority;
+	/**
 	 * @var string UID конкурсной группы (не обязательное поле).
 	 */
 	public $CompetitiveGroupID;
@@ -28,10 +32,7 @@ class FIS_PackageData_Application_FinSourceEduForm extends FIS_BaseElement {
 	 * @var string UID элемента конкурсной группы (не обязательное поле).
 	 */
 	public $CompetitiveGroupItemID;
-	/**
-	 * @var string Приоритете условия приема (не обязательное поле).
-	 */
-	public $Priority;
+
 	
 	
 	/**
