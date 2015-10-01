@@ -1,10 +1,11 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 /**
- * Класс, представляющий блок данных результате вступительного испытания.
+ * Класс, представляющий блок данных о результате вступительного испытания.
  * @package FIS EGE
  * @author Сергей С. Смирнов
  * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
+ * @version 2.5.3
  */
 class FIS_PackageData_Application_EntranceTestResult extends FIS_BaseElement {
 
@@ -32,11 +33,10 @@ class FIS_PackageData_Application_EntranceTestResult extends FIS_BaseElement {
 	 * @var string ИД конкурсной группы (обязательное поле).
 	 */
 	public $CompetitiveGroupID;
-// FUTURE: Реализовать генерацию ResultDocument
-// 	/**
-// 	 * @var Unknown Сведения об основаниях оценки (не обязательное поле).
-// 	 */
-// 	public $ResultDocument;
+	/**
+	 * @var FIS_PackageData_Application_EntranceTestResultInstitutionDocument|FIS_PackageData_Application_EntranceTestResultOlympicDocument|FIS_PackageData_Application_EntranceTestResultOlympicTotalDocument|FIS_PackageData_Application_EntranceTestResultEgeDocument Сведения об основании для оценки (требуется инициализация, не обязательное поле).
+	 */
+	public $ResultDocument = NULL;
 	
 	
 	/**
@@ -70,6 +70,8 @@ class FIS_PackageData_Application_EntranceTestResult extends FIS_BaseElement {
 		$entranceTestSubject->appendChild(new DOMElement((is_string($this->SubjectName) ? 'SubjectName' : 'SubjectID'), $this->SubjectName));
 		$node->appendChild(new DOMElement('EntranceTestTypeID', $this->EntranceTestTypeID));
 		$node->appendChild(new DOMElement('CompetitiveGroupID', $this->CompetitiveGroupID));
+		if (is_object($this->ResultDocument))
+			$node->appendChild($this->ResultDocument->GetNode($node->appendChild(new DOMElement('ResultDocument'))));
 		return $node;
 	}
 

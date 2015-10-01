@@ -5,14 +5,15 @@
  * @package FIS EGE
  * @author Сергей С. Смирнов
  * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
+ * @version 2.5.3
  */
 class FIS_PackageData_Application_ApplicationDocuments extends FIS_BaseElement {
 
-// FUTURE: Реализовать генерацию EgeDocument
+// FUTURE: Реализовать генерацию EgeDocuments
 // 	/**
 // 	 * @var Unknown Свидетельство о результатах ЕГЭ (не обязательное поле, требует инициализации).
 // 	 */
-// 	public $EgeDocument;
+// 	public $EgeDocuments;
 // FUTURE: Реализовать генерацию GiaDocuments
 // 	/**
 // 	 * @var Unknown Справки ГИА (не обязательное поле, требует инициализации).
@@ -22,6 +23,11 @@ class FIS_PackageData_Application_ApplicationDocuments extends FIS_BaseElement {
 	 * @var FIS_PackageData_Application_IdentityDocument Документ, удостоверяющий личность (обязательное поле, инициализируется автоматически).
 	 */
 	public $IdentityDocument;
+// 	FUTURE: Реализовать генерацию OtherIdentityDocument
+// 	/**
+// 	 * @var unknown 
+// 	 */
+// 	public $OtherIdentityDocument;
 	/**
 	 * @var FIS_PackageData_Application_BaseDocument[] Массив данных о документах об образовании (не обязательное поле).
 	 */

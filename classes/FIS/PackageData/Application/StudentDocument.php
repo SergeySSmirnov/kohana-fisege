@@ -5,9 +5,14 @@
  * @package FIS EGE
  * @author Сергей С. Смирнов
  * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
+ * @version 2.5.3
  */
 class FIS_PackageData_Application_StudentDocument extends FIS_BaseElement {
 
+	/**
+	 * @var string Идентификатор в ИС ОО (не обязательное поле).
+	 */
+	public $UID;
 	/**
 	 * @var string Номер документа (обязательное поле).
 	 */
@@ -28,6 +33,8 @@ class FIS_PackageData_Application_StudentDocument extends FIS_BaseElement {
 	 * @return DOMNode Узел XML, содержащий соответствующие данные.
 	 */
 	public function GetNode($node) {
+		if (!empty($this->UID))
+			$node->appendChild(new DOMElement('UID', $this->UID));
 		$node->appendChild(new DOMElement('DocumentNumber', $this->DocumentNumber));
 		$node->appendChild(new DOMElement('DocumentDate', $this->DocumentDate));
 		if (!empty($this->DocumentOrganisation))

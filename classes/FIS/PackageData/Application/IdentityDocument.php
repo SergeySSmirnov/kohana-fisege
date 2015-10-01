@@ -5,6 +5,7 @@
  * @package FIS EGE
  * @author Сергей С. Смирнов
  * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
+ * @version 2.5.3
  */
 class FIS_PackageData_Application_IdentityDocument extends FIS_BaseElement {
 
@@ -13,7 +14,7 @@ class FIS_PackageData_Application_IdentityDocument extends FIS_BaseElement {
 	 */
 	public $UID;
 	/**
-	 * @var bool Признак представления оригинала документов (обязательное поле).
+	 * @var bool Поле зарезервировано. Значение не обрабатывается (не обязательное поле).
 	 */
 	public $OriginalReceived;
 	/**
@@ -68,8 +69,7 @@ class FIS_PackageData_Application_IdentityDocument extends FIS_BaseElement {
 	 * @param int $nation ИД гражданства из справочника №7.
 	 * @param DateTime $birth Дата рождения.
 	 */
-	function __construct($origReceived = NULL, $ser = NULL, $num = NULL, $date = NULL, $type = NULL, $nation = NULL, $birth = NULL) {
-		$this->OriginalReceived = $origReceived;
+	function __construct($ser = NULL, $num = NULL, $date = NULL, $type = NULL, $nation = NULL, $birth = NULL) {
 		$this->DocumentSeries = $ser;
 		$this->DocumentNumber = $num;
 		$this->DocumentDate = $date;
@@ -86,7 +86,6 @@ class FIS_PackageData_Application_IdentityDocument extends FIS_BaseElement {
 	public function GetNode($node) {
 		if(!empty($this->UID))
 			$node->appendChild(new DOMElement('UID', $this->UID));
-		$node->appendChild(new DOMElement('OriginalReceived', (($this->OriginalReceived === TRUE) ? 'true' : 'false')));
 		if(!empty($this->OriginalReceivedDate))
 			$node->appendChild(new DOMElement('OriginalReceivedDate', $this->OriginalReceivedDate));
 		if(!empty($this->DocumentSeries))

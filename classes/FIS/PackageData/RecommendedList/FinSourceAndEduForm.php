@@ -1,13 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 /**
- * Класс, представляющий блок данных об условиях приема по текущей реализации.
+ * Класс, представляющий блок данных об условиях приема по спецификации.
  * @package FIS EGE
  * @author Сергей С. Смирнов
  * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
  * @version 2.5.3
  */
-class FIS_PackageData_RecommendedList_FinSourceEduForm extends FIS_BaseElement {
+class FIS_PackageData_RecommendedList_FinSourceAndEduForm extends FIS_BaseElement {
 
 	/**
 	 * @var int ИД уровня образования по справочнчику №2 (обязательное поле).
@@ -16,7 +16,7 @@ class FIS_PackageData_RecommendedList_FinSourceEduForm extends FIS_BaseElement {
 	/**
 	 * @var int ИД формы обучения по справочнику №14 (обязательное поле).
 	 */
-	public $EducationFormID;
+	public $EducationalFormID;
 	/**
 	 * @var string UID конкурсной группы (обязательное поле).
 	 */
@@ -36,7 +36,7 @@ class FIS_PackageData_RecommendedList_FinSourceEduForm extends FIS_BaseElement {
 	 */
 	function __construct($edLvlID = NULL, $edFrmID = NULL, $compGrpID = NULL, $dirctnID = NULL) {
 		$this->EducationalLevelID = $edLvlID;
-		$this->EducationFormID = $edFrmID;
+		$this->EducationalFormID = $edFrmID;
 		$this->CompetitiveGroupID = $compGrpID;
 		$this->DirectionID = $dirctnID;
 	}
@@ -48,7 +48,7 @@ class FIS_PackageData_RecommendedList_FinSourceEduForm extends FIS_BaseElement {
 	 */
 	public function GetNode($node) {
 		$node->appendChild(new DOMElement('EducationalLevelID', $this->EducationalLevelID));
-		$node->appendChild(new DOMElement('EducationFormID', $this->EducationFormID));
+		$node->appendChild(new DOMElement('EducationalFormID', $this->EducationalFormID));
 		$node->appendChild(new DOMElement('CompetitiveGroupID', $this->CompetitiveGroupID));
 		$node->appendChild(new DOMElement('DirectionID', $this->DirectionID));
 		return $node;

@@ -5,6 +5,7 @@
  * @package FIS EGE
  * @author Сергей С. Смирнов
  * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
+ * @version 2.5.3
  */
 class FIS_PackageData_Application extends FIS_BaseElement {
 

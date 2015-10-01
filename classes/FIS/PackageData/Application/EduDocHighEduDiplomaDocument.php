@@ -5,6 +5,7 @@
  * @package FIS EGE
  * @author Сергей С. Смирнов
  * @copyright 2013-15 Ivanovo State University od Chemistry and Technology
+ * @version 2.5.3
  */
 class FIS_PackageData_Application_EduDocHighEduDiplomaDocument extends FIS_PackageData_Application_BaseDocument {
 	
@@ -13,15 +14,15 @@ class FIS_PackageData_Application_EduDocHighEduDiplomaDocument extends FIS_Packa
 	 */
 	public $RegistrationNumber;
 	/**
-	 * @var string ИД квалификации (не обязательное поле).
+	 * @var string Поле зарезервировано. Значение не обрабатывается (не обязательное поле).
 	 */
 	public $QualificationTypeID;
 	/**
-	 * @var string ИД сециальности (не обязательное поле).
+	 * @var string Код направления подготовки из справочника №10 (не обязательное поле).
 	 */
 	public $SpecialityID;
 	/**
-	 * @var string ИД специализации (не обязательное поле).
+	 * @var string Поле зарезервировано. Значение не обрабатывается (не обязательное поле).
 	 */
 	public $SpecializationID;
 	/**
@@ -36,13 +37,11 @@ class FIS_PackageData_Application_EduDocHighEduDiplomaDocument extends FIS_Packa
 
 	/**
 	 * Инициализирует экземпляр класса FIS_PackageData_Application_BaseDocument.
-	 * @param bool $origReceive Признак представления оригиналов документов.
 	 * @param string $ser Серия документа.
 	 * @param string $num Номер документа.
 	 * @param DateTime Дата выдачи документа.
 	 */
-	function __construct($origReceive = NULL, $ser = NULL, $num = NULL, $docDate = NULL) {
-		$this->OriginalReceived = $origReceive;
+	function __construct($ser = NULL, $num = NULL, $docDate = NULL) {
 		$this->DocumentSeries = $ser;
 		$this->DocumentNumber = $num;
 		$this->DocumentDate = $docDate;
@@ -58,12 +57,8 @@ class FIS_PackageData_Application_EduDocHighEduDiplomaDocument extends FIS_Packa
 		$node = parent::GetNode($node);
 		if (!empty($this->RegistrationNumber))
 			$node->appendChild(new DOMElement('RegistrationNumber', $this->RegistrationNumber));
-		if (!empty($this->QualificationTypeID))
-			$node->appendChild(new DOMElement('QualificationTypeID', $this->QualificationTypeID));
 		if (!empty($this->SpecialityID))
 			$node->appendChild(new DOMElement('SpecialityID', $this->SpecialityID));
-		if (!empty($this->SpecializationID))
-			$node->appendChild(new DOMElement('SpecializationID', $this->SpecializationID));
 		if (!empty($this->EndYear))
 			$node->appendChild(new DOMElement('EndYear', $this->EndYear));
 		if (!empty($this->GPA))
