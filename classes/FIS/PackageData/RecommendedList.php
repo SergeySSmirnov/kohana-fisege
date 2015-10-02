@@ -14,37 +14,19 @@ class FIS_PackageData_RecommendedList extends FIS_BaseElement {
 	 */
 	public $Stage;
 	/**
-	 * @var string Номер заявления (обязательное поле).
+	 * @var FIS_PackageData_RecommendedList_RecList[] Элементы списка лиц, рекомендованных к зачислению (обязательное поле, необходима предварительная инициализация каждого элемента массива).
 	 */
-	public $ApplicationNumber;
-	/**
-	 * @var DateTime Дата регистрации заявления (обязательное поле).
-	 */
-	public $RegistrationDate;
-	/**
-	 * @var FIS_PackageData_RecommendedList_FinSourceEduForm[] Массив с данными об условиях приема по текущей реализации приёма (обязательное поле, необходима предварительная инициализация каждого элемента массива).
-	 */
-	public $FinSourceEduForms = array();
-	/**
-	 * @var FIS_PackageData_RecommendedList_FinSourceAndEduForm[] Массив с данными об условиях приема по спецификации (обязательное поле, необходима предварительная инициализация каждого элемента массива).
-	 */
-	public $FinSourceAndEduForms = array();
+	public $RecLists = array();
 	
 	
 	/**
 	 * Инициализирует экземпляр класса FIS_PackageData_RecommendedList.
 	 * @param int $stage Этап зачисления (возможные значения 1 или 2, обязательное поле).
-	 * @param string $appNumber Номер заявления (обязательное поле).
-	 * @param DateTime $regDate Дата регистрации заявления (обязательное поле).
-	 * @param FIS_PackageData_RecommendedList_FinSourceEduForm[] $finSrc Массив с данными об условиях приема по текущей реализации приёма (обязательное поле, необходима предварительная инициализация каждого элемента массива).
-	 * @param FIS_PackageData_RecommendedList_FinSourceAndEduForm[] $finAndSrc Массив с данными об условиях приема по спецификации (обязательное поле, необходима предварительная инициализация каждого элемента массива).
+	 * @param FIS_PackageData_RecommendedList_RecList[] $recLists Элементы списка лиц, рекомендованных к зачислению (обязательное поле, необходима предварительная инициализация каждого элемента массива).
 	 */
-	function __construct($stage, $appNumber, $regDate, $finSrc, $finAndSrc) {
+	function __construct($stage, $recLists) {
 		$this->Stage = $stage;
-		$this->ApplicationNumber = $appNumber;
-		$this->RegistrationDate = $regDate;
-		$this->FinSourceEduForms = $finSrc;
-		$this->FinSourceAndEduForms = $finAndSrc;
+		$this->RecLists = $recLists;
 	}
 
 	/**
@@ -54,19 +36,10 @@ class FIS_PackageData_RecommendedList extends FIS_BaseElement {
 	 */
 	public function GetNode($node) {
 		$node->appendChild(new DOMElement('Stage', $this->Stage));
-		$recList = $node->appendChild(new DOMElement('RecLists'))->appendChild(new DOMElement('RecList'));
-		$application = $recList->appendChild(new DOMElement('Application'));
-		$application->appendChild(new DOMElement('ApplicationNumber', $this->ApplicationNumber));
-		$application->appendChild(new DOMElement('RegistrationDate', $this->RegistrationDate));
-		if (count($this->FinSourceEduForms) > 0) {
-			$nodeApp = $recList->appendChild(new DOMElement('FinSourceEduForms'));
-			foreach ($this->FinSourceEduForms as $app)
-				$nodeApp->appendChild($app->GetNode($node->appendChild(new DOMElement('FinSourceEduForm'))));
-		}
-		if (count($this->FinSourceAndEduForms) > 0) {
-			$nodeApp = $recList->appendChild(new DOMElement('FinSourceAndEduForms'));
-			foreach ($this->FinSourceAndEduForms as $app)
-				$nodeApp->appendChild($app->GetNode($node->appendChild(new DOMElement('FinSourceAndEduForm'))));
+		$_recListsNode = $node->appendChild(new DOMElement('RecLists'));
+		if (count($this->RecLists) > 0) {
+			foreach ($this->RecLists as $_rec)
+				$_recListsNode->appendChild($_rec->GetNode($node->appendChild(new DOMElement('RecList'))));
 		}
 		return $node;
 	}
